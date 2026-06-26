@@ -1,0 +1,8 @@
+[project]
+name = "demo-external-auth-mcp"
+version = "0.1.0"
+description = "Descope-protected FastMCP demo server"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.4.2",
+]
