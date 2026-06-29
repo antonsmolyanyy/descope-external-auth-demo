@@ -1,14 +1,37 @@
-from fastmcp import FastMCP
-from fastmcp.server.auth.providers.descope import DescopeProvider
 import os
 
-# The DescopeProvider automatically discovers Descope endpoints
-# and configures JWT token validation
+from fastmcp import FastMCP
+from fastmcp.server.auth.providers.descope import DescopeProvider
+
+
+def get_base_url() -> str:
+    base_url = os.getenv("BASE_URL")
+    if base_url:
+        return base_url.rstrip("/")
+
+    vercel_url = os.getenv("VERCEL_URL")
+    if vercel_url:
+        return f"https://{vercel_url.rstrip('/')}"
+
+    return "http://localhost:8000"
+
+
+def get_descope_config_url() -> str:
+    config_url = os.getenv("DESCOPE_CONFIG_URL")
+    if not config_url:
+        raise RuntimeError(
+            "DESCOPE_CONFIG_URL is required. Set your Descope MCP server "
+            "OpenID configuration URL."
+        )
+    return config_url
+
+
 auth_provider = DescopeProvider(
-    config_url="https://api.descope.com/v1/apps/agentic/P3EhOa8sStPIjOyCeedrE5SYGxIu//.well-known/openid-configuration",        # Your MCP Server .well-known URL
-    base_url="https://5391-50-145-2-114.ngrok-free.app",                  # Your server's public URL
+    config_url=get_descope_config_url(),
+    base_url=get_base_url(),
 )
 mcp = FastMCP(name="descope-demo", auth=auth_provider)
+
 
 @mcp.tool
 def read_file(path: str) -> str:
@@ -42,4 +65,5 @@ def delete_file(path: str) -> str:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="http", port=8000)
+    port = int(os.getenv("PORT", "8000"))
+    mcp.run(transport="http", port=port)
