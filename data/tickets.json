@@ -1,0 +1,58 @@
+[
+  {
+    "id": "tic_1001",
+    "customer_id": "cus_001",
+    "subject": "SSO users cannot log in after certificate rotation",
+    "description": "Some users are seeing an invalid SAML response after the IdP certificate was rotated.",
+    "status": "open",
+    "priority": "urgent",
+    "created_at": "2026-06-24T09:15:00Z",
+    "updated_at": "2026-06-24T09:15:00Z",
+    "assigned_to": "support-tier-2",
+    "tags": [
+      "sso",
+      "saml",
+      "certificate"
+    ],
+    "internal_notes": [
+      {
+        "author": "system",
+        "created_at": "2026-06-24T09:20:00Z",
+        "body": "Customer reports this started after IdP cert rotation."
+      }
+    ]
+  },
+  {
+    "id": "tic_1002",
+    "customer_id": "cus_002",
+    "subject": "Invoice total does not match expected Growth plan price",
+    "description": "Customer says their invoice includes an unexpected seat overage charge.",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-06-25T15:40:00Z",
+    "updated_at": "2026-06-25T15:40:00Z",
+    "assigned_to": "billing-support",
+    "tags": [
+      "billing",
+      "invoice"
+    ],
+    "internal_notes": []
+  },
+  {
+    "id": "tic_1003",
+    "customer_id": "cus_003",
+    "subject": "How do I invite my first teammate?",
+    "description": "Trial customer needs help adding a teammate and assigning a role.",
+    "status": "open",
+    "priority": "low",
+    "created_at": "2026-06-26T18:05:00Z",
+    "updated_at": "2026-06-26T18:05:00Z",
+    "assigned_to": "support-tier-1",
+    "tags": [
+      "onboarding",
+      "users",
+      "roles"
+    ],
+    "internal_notes": []
+  }
+]

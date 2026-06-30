@@ -1,0 +1,48 @@
+[
+  {
+    "id": "cus_001",
+    "name": "Maya Chen",
+    "email": "maya.chen@example.com",
+    "company": "Northstar Robotics",
+    "plan": "Enterprise",
+    "status": "active",
+    "created_at": "2025-11-14",
+    "health_score": 82,
+    "tags": [
+      "enterprise",
+      "high-value",
+      "sso"
+    ],
+    "notes": "Uses SSO and SCIM. Very sensitive to downtime during deploy windows."
+  },
+  {
+    "id": "cus_002",
+    "name": "Eli Johnson",
+    "email": "eli.johnson@example.com",
+    "company": "BrightCart",
+    "plan": "Growth",
+    "status": "active",
+    "created_at": "2026-01-22",
+    "health_score": 64,
+    "tags": [
+      "billing",
+      "growth"
+    ],
+    "notes": "Recently upgraded. Has had repeated billing confusion."
+  },
+  {
+    "id": "cus_003",
+    "name": "Sofia Ramirez",
+    "email": "sofia.ramirez@example.com",
+    "company": "Atlas Legal",
+    "plan": "Starter",
+    "status": "trial",
+    "created_at": "2026-06-03",
+    "health_score": 48,
+    "tags": [
+      "trial",
+      "onboarding"
+    ],
+    "notes": "Needs onboarding help and basic setup guidance."
+  }
+]
