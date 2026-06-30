@@ -15,6 +15,10 @@ def get_base_url() -> str:
     if vercel_url:
         return f"https://{vercel_url.rstrip('/')}"
 
+    render_external_url = os.getenv("RENDER_EXTERNAL_URL")
+    if render_external_url:
+        return render_external_url.rstrip("/")
+
     return "http://localhost:8000"
 
 

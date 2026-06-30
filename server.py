@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from demo_server import get_mcp
+from demo_server import get_base_url, get_mcp
 
 
 def build_app() -> FastAPI:
@@ -24,6 +24,16 @@ def build_app() -> FastAPI:
         return app
 
     app = FastAPI(lifespan=mcp_app.lifespan)
+
+    @app.get("/")
+    async def root() -> dict[str, str]:
+        base_url = get_base_url()
+        return {
+            "status": "ok",
+            "mcp_endpoint": f"{base_url}/mcp",
+            "protected_resource_metadata": f"{base_url}/.well-known/oauth-protected-resource/mcp",
+        }
+
     app.mount("/", mcp_app)
     return app
 
